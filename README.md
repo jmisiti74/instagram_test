@@ -1,4 +1,4 @@
-# Récupération de likes / postes d'un utilisateur instagram
+# Récupération de likes par postes d'un utilisateur instagram
 
 Pour que l'application fonctionne il faut un fichier variables.env à la base du projet avec à l'interieur votre CLIENT_ID et CLIENT_SECRET obtenu ici : https://www.instagram.com/developer/
 
