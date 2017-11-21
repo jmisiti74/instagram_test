@@ -1,4 +1,4 @@
-# Instagram likes per post fetching project
+# Récupération des likes par postes d'un utilisateur
 
 Pour que l'application fonctionne il faut un fichier variables.env à la base du projet avec à l'interieur votre CLIENT_ID et CLIENT_SECRET obtenu ici : https://www.instagram.com/developer/
 
