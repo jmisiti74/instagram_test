@@ -28,7 +28,7 @@ api.use({
 });
 
 exports.authorize_user = (req, res) => {
-  res.redirect(api.get_authorization_url(redirect_uri, { scope: ['public_content'], state: 'state' }));
+  res.redirect(api.get_authorization_url(redirect_uri, { scope: ['PUBLIC_CONTENT'], state: 'state' }));
 };
 
 exports.handle_auth = (req, res) => {
