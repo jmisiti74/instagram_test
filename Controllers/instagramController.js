@@ -62,11 +62,11 @@ exports.get_lpp = (req, res) => {
   if (req.body && req.body.username) {
     ig.user_search(req.body.username, (err, users, remaining, limit) => {
       if (err) {
-        res.send(`An error occured : ${err}`)
+        res.send(`${err}`)
       } else if (users[0] != null) {
         ig.user_media_recent(users[0].id.toString() , (err, medias, pagination, remaining, limit) => {
           if (err) {
-            res.send(`An error occured : ${err}`)
+            res.send(`${err}`)
           } else {
             res.send(`<b>${req.body.username}</b> : ${countLikes(medias).toString()} likes / post<br /><br /><a href='/'>Try again</a>`);
           }
