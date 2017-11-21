@@ -27,14 +27,16 @@ api.use({
   client_secret: process.env.CLIENT_SECRET
 });
 
+//getting the authorization from instagram api
 exports.authorize_user = (req, res) => {
   res.redirect(api.get_authorization_url(redirect_uri, { scope: ['public_content'], state: 'state' }));
 };
 
+//saving access token to send requests
 exports.handle_auth = (req, res) => {
   api.authorize_user(req.query.code, redirect_uri, (err, result) => {
     if (err) {
-      res.send("Didn't work");
+      res.send(err);
     } else {
       accessToken = true;
       ig.use({
@@ -45,6 +47,7 @@ exports.handle_auth = (req, res) => {
   });
 };
 
+//Checking if access token exist
 exports.is_access_token = (req, res, next) => {
   if (accessToken == true)
     return next();
@@ -52,12 +55,14 @@ exports.is_access_token = (req, res, next) => {
     res.redirect('/login');
 }
 
+//show the index page containing the form
 exports.show_form = (req, res) => {
   res.render('index', {
 		title: 'Home'
 	});
 };
 
+//Get likes per posts from instagram api
 exports.get_lpp = (req, res) => {
   if (req.body && req.body.username) {
     ig.user_search(req.body.username, (err, users, remaining, limit) => {
